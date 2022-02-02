@@ -1,5 +1,6 @@
 import React from "react";
 import MessageTableRow from "./MessageTableRow";
+import Table from 'react-bootstrap/Table';
 
 const  MessageTable = () => {
         const messages = [];
@@ -12,7 +13,7 @@ const  MessageTable = () => {
 
 
 
-        const { Table } = ReactBootstrap;
+        //const { Table } = ReactBootstrap;
         return (
 
             <div className="m-3 p-4-dark ">
