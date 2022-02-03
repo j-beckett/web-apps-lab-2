@@ -1,23 +1,26 @@
 import React from "react";
+import { useState } from 'react';
 import MessageTable from "./MessageTable";
 import NewMesssageForm from "./NewMessageForm";
 
 const  MessageContainer = () => {
-    const messages = [];
-    messages[0] = {"id": 0, "name": "Avril Lavigne", "message": "He was a skaterboi...."};
-    messages[1] = {"id": 1, "name": "Betty White", "message": "Animals > Humans"};
-    messages[2] = {"id": 2, "name": "Rick Sanchez", "message": "Wubba Lubba Dub Dub!!"};
-    messages[3] = {"id": 3, "name": "The_Real_Meatloaf (RIP)", "message": "Who am I, why am I here? Forget the question, someone give me another beer."};
-    messages[4] = {"id": 4, "name": "Hank Hill", "message": "Goddamnit Bobby...."};
-    messages[5] = {"id": 5, "name": "Nicolas Cage in Ghost Rider: Spirit Of Vengeance ", "message": "I'm a good actor I promise plz don't judge me on this preformance alone"};
 
+    const [messages, setMessages] = React.useState([
+        {"id": 0, "name": "Avril Lavigne", "msgText": "He was a skaterboi...."},
+        {"id": 1, "name": "Betty White", "msgText": "Animals > Humans"},
+        {"id": 2, "name": "Rick Sanchez", "msgText": "Wubba Lubba Dub Dub!!"},
+        {"id": 3, "name": "The_Real_Meatloaf (RIP)", "msgText": "Who am I, why am I here? Forget the question, someone give me another beer."},
+        {"id": 4, "name": "Hank Hill", "msgText": "Goddamnit Bobby...."},
+        {"id": 5, "name": "Nicolas Cage in Ghost Rider: Spirit Of Vengeance ", "msgText": "I'm a good actor I promise plz don't judge me on this preformance alone"}
+    ]);
 
+  //  console.log(messages);
     // function called by Formik to pass data from the Form
     const addNewMessage = (values) => {
         console.log(values);
         values.id = messages.length;
-        messages.unshift(values);
-        console.log(messages);
+        
+        setMessages( [values, ...messages] );
     }
 
     return(
