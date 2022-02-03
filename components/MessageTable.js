@@ -13,8 +13,8 @@ const  MessageTable = ({messages}) => {
                         <th className="p-3 border border-secondary">Name</th>
                         <th className="p-3 border border-secondary">Message</th>
                     </tr>
-                    {messages.map(message =>
-                        <MessageTableRow id={message.id} {...message} key={message.id}/>
+                    {messages.map((message, index) =>
+                        <MessageTableRow key={message.id} {...message} key={message.id} msgNum={index+1}/>
                     )}
 
                 </Table>
